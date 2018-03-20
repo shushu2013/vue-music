@@ -27,4 +27,9 @@ export default {
   @import "~common/stylus/variable"
   #app
     color: $color-theme
+    @media screen and (min-width: $media-min-width)
+      position: absolute
+      left: 50%
+      margin-left: -($media-set-width / 2)
+      width: $media-set-width
 </style>

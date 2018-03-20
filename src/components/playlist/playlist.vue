@@ -161,6 +161,10 @@ export default {
     bottom: 0
     z-index: 200
     background-color: $color-background-d
+    @media screen and (min-width: $media-min-width)
+      left: 50%
+      margin-left: -($media-set-width / 2)
+      width: $media-set-width
     &.list-fade-enter-active, &.list-fade-leave-active
       transition: opacity 0.3s
       .list-wrapper

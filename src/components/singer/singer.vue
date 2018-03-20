@@ -101,10 +101,16 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+  @import "~common/stylus/variable"
+
   .singer
     position: fixed
     top: 88px
     bottom: 0
     width: 100%
+    @media screen and (min-width: $media-min-width)
+      left: 50%
+      margin-left: -($media-set-width / 2)
+      width: $media-set-width
 </style>
 

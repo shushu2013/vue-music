@@ -4,7 +4,7 @@
       <i class="icon-mine"></i>
     </router-link>
     <div class="icon"></div>
-    <h1 class="text">Chicken Music</h1>
+    <h1 class="text">Vue Music</h1>
     <full-screen class="full-screen"></full-screen>
   </div>
 </template>

@@ -128,6 +128,10 @@
       transition: all 0.3s
     &.slide-enter, &.slide-leave-to
       transform: translate3d(100%, 0, 0)
+    @media screen and (min-width: $media-min-width)
+      left: 50%
+      margin-left: -($media-set-width / 2)
+      width: $media-set-width
     .back
       position absolute
       top: 0

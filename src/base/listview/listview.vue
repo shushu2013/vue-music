@@ -23,6 +23,7 @@
       @touchmove.stop.prevent="onShortcutTouchMove">
       <ul>
         <li
+          @click="selectIndex(index)"
           v-for="(item, index) in shortcutList"
           class="item"
           :class="{'current' : currentIndex === index}"
@@ -80,6 +81,9 @@ export default {
   methods: {
     selectItem(item) {
       this.$emit('select', item)
+    },
+    selectIndex(index) {
+      this._scrollTo(index)
     },
     onShortcutTouchStart(e) {
       let anchorIndex = getData(e.target, 'index')

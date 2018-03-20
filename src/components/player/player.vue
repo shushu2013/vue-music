@@ -15,6 +15,7 @@
           <h2 class="subtitle" v-html="currentSong.singer"></h2>
         </div>
         <div class="middle"
+             ref="middle"
              @touchstart="middleTouchStart"
              @touchmove="middleTouchMove"
              @touchend="middleTouchEnd">
@@ -41,8 +42,8 @@
         </div>
         <div class="bottom">
           <div class="dot-wrapper">
-            <span class="dot" :class="{'active': currentShow === 'cd'}"></span>
-            <span class="dot" :class="{'active': currentShow === 'lyric'}"></span>
+            <span @click="toggleLyricCd" class="dot" :class="{'active': currentShow === 'cd'}"></span>
+            <span @click="toggleLyricCd" class="dot" :class="{'active': currentShow === 'lyric'}"></span>
           </div>
           <div class="progress-wrapper">
             <span class="time time-l">{{format(currentTime)}}</span>
@@ -362,7 +363,8 @@ export default {
       if (this.currentShow === 'cd') {
         // 从右向左滑的情况
         if (this.touch.percent > 0.2) {
-          offsetWidth = -window.innerWidth
+          // offsetWidth = -window.innerWidth
+          offsetWidth = -this.$refs.middle.clientWidth
           this.currentShow = 'lyric'
           opactiy = 0
         } else {
@@ -376,7 +378,8 @@ export default {
           this.currentShow = 'cd'
           opactiy = 1
         } else {
-          offsetWidth = -window.innerWidth
+          // offsetWidth = -window.innerWidth
+          offsetWidth = -this.$refs.middle.clientWidth
           opactiy = 0
         }
       }
@@ -385,6 +388,16 @@ export default {
       this.$refs.lyricList.$el.style[transitionDuration] = `${time}ms`
       this.$refs.middleL.style.opacity = opactiy
       this.$refs.middleL.style[transitionDuration] = `${time}ms`
+    },
+    toggleLyricCd() {
+      if (this.currentShow === 'cd') {
+        // 从右向左滑的情况
+        this.touch.percent = 0.3
+      } else {
+        // 从左向右滑的情况
+        this.touch.percent = 0.7
+      }
+      this.middleTouchEnd()
     },
     _pad(num, n = 2) {
       let len = num.toString().length
@@ -473,6 +486,10 @@ export default {
       bottom: 0
       z-index: 150
       background: $color-background
+      @media screen and (min-width: $media-min-width)
+        left: 50%
+        margin-left: -($media-set-width / 2)
+        width: $media-set-width
       .background
         position: absolute
         left: 0
@@ -516,6 +533,11 @@ export default {
         bottom: 170px
         white-space: nowrap
         font-size: 0
+        @media screen and (min-width: $media-min-width)
+          left: 50%
+          margin-left: -($media-set-width / 2)
+          width: $media-set-width
+          overflow: hidden
         .middle-l
           display: inline-block
           vertical-align: top
@@ -656,6 +678,10 @@ export default {
         transition: all 0.4s
       &.mini-enter, &.mini-leave-to
         opacity: 0
+      @media screen and (min-width: $media-min-width)
+        left: 50%
+        margin-left: -($media-set-width / 2)
+        width: $media-set-width
       .icon
         flex: 0 0 40px
         width: 40px

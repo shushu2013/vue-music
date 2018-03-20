@@ -154,7 +154,11 @@ export default {
     left: 0
     bottom: 0
     right: 0
-    background: $color-background
+    background: $color-theme
+    @media screen and (min-width: $media-min-width)
+      left: 50%
+      margin-left: -($media-set-width / 2)
+      width: $media-set-width
     .back
       position absolute
       top: 0
@@ -224,6 +228,10 @@ export default {
       bottom: 0
       width: 100%
       background: $color-background
+      @media screen and (min-width: $media-min-width)
+        left: 50%
+        margin-left: -($media-set-width / 2)
+        width: $media-set-width
       .song-list-wrapper
         padding: 20px 30px
       .loading-container

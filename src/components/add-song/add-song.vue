@@ -132,92 +132,70 @@ export default {
 @import "~common/stylus/variable"
 @import "~common/stylus/mixin"
 
-.add-song {
+.add-song
   position: fixed
   top: 0
   bottom: 0
   width: 100%
   z-index: 200
   background: $color-background
-
-  &.slide-enter-active, &.slide-leave-active {
+  @media screen and (min-width: $media-min-width)
+    left: 50%
+    margin-left: -($media-set-width / 2)
+    width: $media-set-width
+  &.slide-enter-active, &.slide-leave-active
     transition: all 0.3s
-  }
-
-  &.slide-enter, &.slide-leave-to {
+  &.slide-enter, &.slide-leave-to
     transform: translate3d(100%, 0, 0)
-  }
-
-  .header {
+  .header
     position: relative
     height: 44px
     text-align: center
-
-    .title {
+    .title
       line-height: 44px
       font-size: $font-size-large
       color: $color-text
-    }
-
-    .close {
+    .close
       position: absolute
       top: 0
       right: 8px
-
-      .icon-close {
+      .icon-close
         display: block
         padding: 12px
         font-size: 20px
         color: $color-theme
-      }
-    }
-  }
-
-  .search-box-wrapper {
+  .search-box-wrapper
     margin: 20px
-  }
-
-  .shortcut {
-    .list-wrapper {
+  .shortcut
+    .list-wrapper
       position: absolute
       top: 165px
       bottom: 0
       width: 100%
-
-      .list-scroll {
+      .list-scroll
         height: 100%
         overflow: hidden
-
-        .list-inner {
+        .list-inner
           padding: 20px 30px
-        }
-      }
-    }
-  }
-
-  .search-result {
+  .search-result
     position: fixed
     top: 124px
     bottom: 0
     width: 100%
-  }
-
-  .tip-title {
+    @media screen and (min-width: $media-min-width)
+      left: 50%
+      margin-left: -($media-set-width / 2)
+      width: $media-set-width
+  .tip-title
     text-align: center
     padding: 18px 0
     font-size: 0
-
-    .icon-ok {
+    .icon-ok
       font-size: $font-size-medium
       color: $color-theme
       margin-right: 4px
-    }
-
-    .text {
+    .text
       font-size: $font-size-medium
       color: $color-text
-    }
-  }
-}
 </style>
 

@@ -124,6 +124,10 @@ export default {
       top: 178px
       bottom: 0
       width: 100%
+      @media screen and (min-width: $media-min-width)
+        left: 50%
+        margin-left: -($media-set-width / 2)
+        width: $media-set-width
       .shortcut
         height: 100%
         overflow: hidden
@@ -162,5 +166,9 @@ export default {
       width: 100%
       top: 178px
       bottom: 0
+      @media screen and (min-width: $media-min-width)
+        left: 50%
+        margin-left: -($media-set-width / 2)
+        width: $media-set-width
 </style>
 

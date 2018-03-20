@@ -85,6 +85,10 @@ export default {
     width: 100%
     top: 88px
     bottom: 0
+    @media screen and (min-width: $media-min-width)
+      left: 50%
+      margin-left: -($media-set-width / 2)
+      width: $media-set-width
     .toplist
       height: 100%
       overflow: hidden

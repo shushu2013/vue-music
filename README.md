@@ -4,7 +4,7 @@
 
 [http://39.106.39.83:9000](http://39.106.39.83:9000/#/recommend)
 
-![vue 音乐播放器](http://oet93w0rc.bkt.clouddn.com/image/github/vue-music.JPG?imageMogr2/interlace/1)
+![vue 音乐播放器](http://oet93w0rc.bkt.clouddn.com/image/github/vue-music.jpg?imageMogr2/interlace/1)
 
 ## 下载与运行
 
